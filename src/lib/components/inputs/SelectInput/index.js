@@ -2,16 +2,28 @@ import React from 'react';
 import { css } from '@emotion/core';
 import { flexRowStyle, selectStyle } from '../../../styles';
 
-const SelectInput = ({ inputName, placeholder, onChange, value, options, error, touched, titleStyle, errorStyle }) => (
+const SelectInput = ({
+  inputName,
+  placeholder,
+  onChange,
+  value,
+  options,
+  error,
+  touched,
+  titleStyle,
+  errorStyle,
+  style
+}) => (
   <div className={flexRowStyle}>
     <p className={titleStyle}>{placeholder}</p>
     <select
-      className={error && "is-invalid"}
+      className={error && 'is-invalid'}
       id={inputName}
       data-toggle="select"
       value={value}
       onChange={onChange}
       css={selectStyle}
+      style={style}
     >
       <option hidden disabled selected value={null} />
       {options.map(item => (
@@ -20,7 +32,7 @@ const SelectInput = ({ inputName, placeholder, onChange, value, options, error, 
         </option>
       ))}
     </select>
-    <div className={errorStyle}>{( error ) && error}</div>
+    <div className={errorStyle}>{error && error}</div>
   </div>
 );
 

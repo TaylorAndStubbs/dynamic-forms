@@ -3,7 +3,18 @@ import Input from '../Input';
 import * as CInput from 'react-currency-input';
 import { flexRowStyle } from '../../../styles';
 
-const CurrencyInput = ({ inputName, title, onChange, value, error, touched, titleClass, errorClass, invalidClass }) => (
+const CurrencyInput = ({
+  inputName,
+  title,
+  onChange,
+  value,
+  error,
+  touched,
+  titleClass,
+  errorClass,
+  invalidClass,
+  style
+}) => (
   <div>
     <div css={flexRowStyle}>
       <p className={titleClass}>{title}</p>
@@ -15,9 +26,10 @@ const CurrencyInput = ({ inputName, title, onChange, value, error, touched, titl
         name={inputName}
         id={inputName}
         value={value}
+        style={style}
       />
     </div>
-    <div className={errorClass}>{( error ) && error}</div>
+    <div className={errorClass}>{error && error}</div>
   </div>
 );
 

@@ -2,7 +2,16 @@ import React from 'react';
 import Input from '../Input';
 import { flexRowStyle } from '../../../styles';
 
-const NumberInput = ({ inputName, title, onChange, value, error, errorClass, titleClass }) => (
+const NumberInput = ({
+  inputName,
+  title,
+  onChange,
+  value,
+  error,
+  errorClass,
+  titleClass,
+  style
+}) => (
   <div>
     <div css={flexRowStyle}>
       <p className={titleClass}>{title}</p>
@@ -13,9 +22,10 @@ const NumberInput = ({ inputName, title, onChange, value, error, errorClass, tit
         name={inputName}
         id={inputName}
         value={value}
+        style={style}
       />
     </div>
-    <div className={errorClass}>{( error ) && error}</div>
+    <div className={errorClass}>{error && error}</div>
   </div>
 );
 

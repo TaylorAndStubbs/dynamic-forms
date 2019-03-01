@@ -5,29 +5,29 @@ import CurrencyInput from '../inputs/CurrencyInput';
 import DateInput from '../inputs/DateInput';
 import SelectInput from '../inputs/SelectInput';
 import TextInput from '../inputs/TextInput';
-import NumberInput from "../inputs/NumberInput";
+import NumberInput from '../inputs/NumberInput';
 
 const renderFormInput = data => {
   switch (data.type) {
-    case "select":
+    case 'select':
       return <SelectInput {...data} />;
-    case "text":
+    case 'text':
       return <TextInput {...data} />;
-    case "integer":
+    case 'integer':
       return <NumberInput {...data} />;
-    case "date":
+    case 'date':
       return <DateInput {...data} />;
-    case "currency":
+    case 'currency':
       return <CurrencyInput {...data} />;
     default:
-      return "error";
+      return 'error';
   }
 };
 
-const AutoForm = ({ onSubmit, schema }) => (
+const AutoForm = ({ onSubmit, schema, inputStyles }) => (
   <Formik
-    validateOnBlue={false}
-    validateOnChange={true}
+    validateOnBlur={false}
+    validateOnChange={false}
     validationSchema={getValidationSchema(schema.fields)}
     onSubmit={async (values, { setSubmitting }) => {
       setSubmitting(true);
@@ -38,19 +38,19 @@ const AutoForm = ({ onSubmit, schema }) => (
     }}
   >
     {({
-        values,
-        errors,
-        handleChange,
-        handleSubmit,
-        isSubmitting,
-        setFieldTouched,
-        touched,
-        setTouched,
-        setValues,
-        setErrors,
-      }) => (
+      values,
+      errors,
+      handleChange,
+      handleSubmit,
+      isSubmitting,
+      setFieldTouched,
+      touched,
+      setTouched,
+      setFieldValue,
+      setErrors
+    }) => (
       <form onSubmit={handleSubmit}>
-        {schema.fields.map(a => (
+        {schema.fields.map(a =>
           renderFormInput({
             ...a,
             datasource: schema[a.inputName],
@@ -58,13 +58,11 @@ const AutoForm = ({ onSubmit, schema }) => (
             value: values[a.inputName],
             error: errors[a.inputName],
             touched: touched[a.inputName],
-            onChangeManual: setValues,
+            setFieldValue: setFieldValue,
+            style: inputStyles[a.type]
           })
-        ))}
-        <button
-          type="submit"
-          style={{ width: '100%' }}
-        >
+        )}
+        <button type="submit" style={{ width: '100%' }}>
           {schema.submitButtonText}
         </button>
       </form>
