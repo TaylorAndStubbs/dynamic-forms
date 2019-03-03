@@ -24,7 +24,7 @@ const renderFormInput = data => {
   }
 };
 
-const AutoForm = ({ onSubmit, schema, inputStyles }) => (
+const AutoForm = ({ onSubmit, schema, inputStyles, submitStyle }) => (
   <Formik
     validateOnBlur={false}
     validateOnChange={false}
@@ -62,7 +62,7 @@ const AutoForm = ({ onSubmit, schema, inputStyles }) => (
             style: inputStyles[a.type]
           })
         )}
-        <button type="submit" style={{ width: '100%' }}>
+        <button type="submit" style={submitStyle}>
           {schema.submitButtonText}
         </button>
       </form>

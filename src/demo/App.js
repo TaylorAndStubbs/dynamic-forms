@@ -85,6 +85,7 @@ const App = () => (
       inputTitleClass={'title'}
       inputErrorClass={'error'}
       inputStyles={TEST_STYLES}
+      submitStyle={{ width: '100%' }}
     />
   </div>
 );
