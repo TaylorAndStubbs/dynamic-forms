@@ -24,7 +24,9 @@ const SelectInput = ({
       css={selectStyle}
       style={style}
     >
-      <option hidden disabled selected value={null} />
+      <option hidden disabled selected value={null}>
+        {placeholder}
+      </option>
       {options.map(item => (
         <option key={item.value} value={item.name}>
           {item.name}

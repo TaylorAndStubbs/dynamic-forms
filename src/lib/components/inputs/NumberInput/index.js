@@ -10,7 +10,8 @@ const NumberInput = ({
   error,
   errorClass,
   titleClass,
-  style
+  style,
+  placeholder
 }) => (
   <div>
     <div css={flexRowStyle}>
@@ -23,6 +24,7 @@ const NumberInput = ({
         id={inputName}
         value={value}
         style={style}
+        placeholder={placeholder}
       />
     </div>
     <div className={errorClass}>{error && error}</div>

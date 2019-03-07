@@ -33,7 +33,7 @@ const TEST_DATA = {
         { value: 'something_else', name: 'Something Else' }
       ],
       required: true,
-      placeholder: 'Vehicle Type'
+      placeholder: 'Select a vehicle'
     },
     {
       inputName: 'vin',
@@ -66,9 +66,7 @@ const TEST_DATA = {
 };
 
 const TEST_STYLES = {
-  text: {
-    background: 'aqua'
-  },
+  text: {},
   currency: {
     background: 'aquamarine'
   },

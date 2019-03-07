@@ -11,7 +11,8 @@ const DateInput = ({
   error,
   titleClass,
   errorClass,
-  style
+  style,
+  placeholder
 }) => {
   return (
     <div>
@@ -23,6 +24,7 @@ const DateInput = ({
           onChange={data => setFieldValue(inputName, data[0].toUTCString())}
           style={style}
           id={inputName}
+          placeholder={placeholder}
         />
       </div>
       <div className={errorClass}>{error && error}</div>

@@ -2,7 +2,17 @@ import React from 'react';
 import Input from '../Input';
 import { flexRowStyle } from '../../../styles';
 
-const TextInput = ({ inputName, title, onChange, value, error, titleClass, errorClass, style }) => {
+const TextInput = ({
+  inputName,
+  title,
+  onChange,
+  value,
+  error,
+  titleClass,
+  errorClass,
+  style,
+  placeholder
+}) => {
   return (
     <div>
       <div css={flexRowStyle}>
@@ -14,6 +24,7 @@ const TextInput = ({ inputName, title, onChange, value, error, titleClass, error
           id={inputName}
           value={value}
           style={style}
+          placeholder={placeholder}
         />
       </div>
       <div className={errorClass}>{error && error}</div>
