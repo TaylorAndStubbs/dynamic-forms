@@ -1,8 +1,3 @@
-import Example from './components/Example';
-import SecondExample from './components/SecondExample';
+import AutoForm from './components/AutoForm';
 
-export default Example;
-
-export {
-  SecondExample,
-};
+export default AutoForm;

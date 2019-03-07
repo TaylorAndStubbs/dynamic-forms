@@ -1,6 +1,5 @@
 import React from 'react';
 import Input from '../Input';
-import { css } from '@emotion/core';
 import { flexRowStyle } from '../../../styles';
 
 const TextInput = ({ inputName, title, onChange, value, error, titleClass, errorClass, style }) => {

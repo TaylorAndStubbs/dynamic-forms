@@ -37,18 +37,7 @@ const AutoForm = ({ onSubmit, schema, inputStyles, submitStyle }) => (
       setSubmitting(false);
     }}
   >
-    {({
-      values,
-      errors,
-      handleChange,
-      handleSubmit,
-      isSubmitting,
-      setFieldTouched,
-      touched,
-      setTouched,
-      setFieldValue,
-      setErrors
-    }) => (
+    {({ values, errors, handleChange, handleSubmit, touched, setFieldValue }) => (
       <form onSubmit={handleSubmit}>
         {schema.fields.map(a =>
           renderFormInput({
