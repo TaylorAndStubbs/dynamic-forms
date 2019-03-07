@@ -67,13 +67,16 @@ const TEST_DATA = {
 
 const TEST_STYLES = {
   text: {
-    background: 'blue'
+    background: 'aqua'
   },
   currency: {
-    background: 'green'
+    background: 'aquamarine'
   },
   select: {
-    background: 'red'
+    background: 'lavender'
+  },
+  date: {
+    background: 'lightcoral'
   }
 };
 

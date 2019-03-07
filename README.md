@@ -1,49 +1,105 @@
-# React NPM library starter kit
-
-[![Build Status](https://travis-ci.org/DimiMikadze/create-react-library.svg?branch=master)](https://travis-ci.org/DimiMikadze/create-react-library)
-[![Dependencies](https://img.shields.io/david/DimiMikadze/create-react-library.svg)]()
-[![Dev Dependencies](https://img.shields.io/david/dev/DimiMikadze/create-react-library.svg)]()
-
-based on Facebook's <a href="https://github.com/facebookincubator/create-react-app" target="_blank">Create react app</a>.
-We are constantly updating repository with the updates of `create-react-app`, so we have all new features and bug fixes of it.
-
-## Converted to custom setup
-
-Moved all dependencies to dev dependencies because we don't need extra dependencies for our library after build, but we want all this features while developing: 
-
-* React, JSX, ES6, and Flow syntax support.
-* Language extras beyond ES6 like the object spread operator.
-* A dev server that lints for common errors.
-* Import CSS and image files directly from JavaScript.
-* Autoprefixed CSS, so you don’t need `-webkit` or other prefixes.
-* A `build` script to bundle JS, CSS, and images for production.
+# Dynamic Forms
 
 ## Getting Started
 
-Clone repo
+Install
 
-````
-git clone https://github.com/DimiMikadze/create-react-library.git
-````
+`npm install dynamic-forms`
 
-Install dependencies
+or
 
-`npm install` or `yarn install`
+`yarn install dynamic-forms`
 
-Start development server
+```
+import AutoForm from 'dynamic-forms';
+```
 
-`npm start` or `yarn start`
+## Available Input Types
 
-Runs the demo app in development mode.
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- `select`
+- `text`
+- `integer`
+- `date`
+- `currency`
 
-## Library files
+## Common Props
 
-All library files are located inside `src/lib`  
+Common props you may want to specify include:
+
+- `schema` - Array of JSON objects defining all input fields in the form
+- `inputTitleClass` - Class name for title display
+- `inputErrorClass` - Class name for error display
+- `inputStyles` - JSON Object with styles for input types
+- `submitStyle` - Style object for submit button
+- `onSubmit` - function
+
+## Example Schema
+
+```
+const MY_SCHEMA = {
+  fields: [
+    {
+      inputName: 'model',
+      type: 'text',
+      required: true,
+      requiredString: 'Please enter a model',
+      placeholder: 'Model',
+      title: 'Model'
+    },
+    {
+      inputName: 'vehicleType',
+      type: 'select',
+      options: [
+        { value: 'car', name: 'Car' },
+        { value: 'boat', name: 'Boat' },
+        { value: 'plane', name: 'Airplane' }
+      ],
+      required: true,
+      placeholder: 'Vehicle Type'
+    },
+    {
+      inputName: 'modelDate',
+      type: 'date',
+      required: true,
+      requiredString: 'Please Enter a Date',
+      placeholder: 'Pick a Date'
+    },
+    {
+      inputName: 'value',
+      type: 'currency',
+      required: true,
+      placeholder: 'Value'
+    }
+  ],
+  submitButtonText: 'Submit Vehicle'
+};
+
+
+```
+
+## Example Input Styles
+
+```
+const INPUT_STYLES = {
+  text: {
+    background: 'aqua'
+  },
+  currency: {
+    background: 'aquamarine'
+  },
+  select: {
+    background: 'lavender'
+  },
+  date: {
+    background: 'lightcoral'
+  }
+};
+
+```
 
 ## Demo app
 
-Is located inside `src/demo` directory, here you can test your library while developing
+Is located inside `src/demo` directory
 
 ## Testing
 
@@ -54,11 +110,3 @@ Is located inside `src/demo` directory, here you can test your library while dev
 `npm run build` or `yarn run build`
 
 Produces production version of library under the `build` folder.
-
-## Publish library
-
-`npm publish`
-
-## Example library built with this starter kit
-
-https://github.com/DimiMikadze/react-under-construction
